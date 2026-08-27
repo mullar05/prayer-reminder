@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Prayer Reminder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>⚙️ Settings</h1>
+    <p>Customize your prayer reminders</p>
+</header>
+
+<main>
+
+    <section>
+        <h2>🕌 Masjid Settings</h2>
+
+        <label for="masjidName">Masjid Name</label>
+        <input
+            type="text"
+            id="masjidName"
+            placeholder="Enter Masjid name"
+        >
+
+        <label for="distance">Reminder Distance</label>
+
+        <select id="distance">
+            <option value="0.1">100 meters</option>
+            <option value="0.2" selected>200 meters</option>
+            <option value="0.5">500 meters</option>
+            <option value="1">1 kilometer</option>
+        >
+
+    </section>
+
+    <section>
+
+        <h2>🔔 Notifications</h2>
+
+        <label class="setting">
+            <span>Masjid Reminder</span>
+            <input type="checkbox" id="masjidReminder" checked>
+        </label>
+
+        <label class="setting">
+            <span>Prayer Reminder</span>
+            <input type="checkbox" id="prayerReminder" checked>
+        </label>
+
+    </section>
+
+    <button id="saveSettings">
+        💾 Save Settings
+    </button>
+
+    <button onclick="window.location.href='index.html'">
+        🏠 Back to Home
+    </button>
+
+</main>
+
+<script src="settings.js"></script>
+
+</body>
+</html>
