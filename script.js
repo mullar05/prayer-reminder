@@ -147,3 +147,58 @@ locationButton.addEventListener("click", function () {
         }
     );
 });
+function monitorMasjidLocation() {
+
+    if (!navigator.geolocation) {
+        return;
+    }
+
+    navigator.geolocation.watchPosition(
+        function (position) {
+
+            const userLatitude = position.coords.latitude;
+            const userLongitude = position.coords.longitude;
+
+            const distance = calculateDistance(
+                userLatitude,
+                userLongitude,
+                masjid.latitude,
+                masjid.longitude
+            );
+
+            if (distance <= 0.2) {
+
+                locationStatus.textContent =
+                    "🕌 You are near the Masjid! Please switch your phone to Silent Mode.";
+
+                locationStatus.style.fontWeight = "bold";
+
+                alert(
+                    "🕌 MASJID REMINDER\n\nPlease switch your phone to Silent Mode."
+                );
+
+            } else {
+
+                locationStatus.textContent =
+                    `You are ${distance.toFixed(2)} km from the Masjid.`;
+
+                locationStatus.style.fontWeight = "normal";
+            }
+        },
+
+        function () {
+
+            locationStatus.textContent =
+                "❌ Please allow location access for the Masjid reminder.";
+
+        },
+
+        {
+            enableHighAccuracy: true,
+            maximumAge: 10000,
+            timeout: 10000
+        }
+    );
+}
+
+monitorMasjidLocation();
