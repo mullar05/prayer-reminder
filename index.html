@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prayer Time Reminder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>🕌 Prayer Time Reminder</h1>
+        <p>Never miss your prayer</p>
+    </header>
+
+    <main>
+        <section class="location">
+            <h2>📍 Your Location</h2>
+            <p>Dar es Salaam, Tanzania</p>
+        </section>
+
+        <section class="next-prayer">
+            <h2>Next Prayer</h2>
+            <h1 id="nextPrayer">Fajr</h1>
+            <p id="prayerTime">05:30 AM</p>
+            <p id="countdown">Time remaining: --:--:--</p>
+        </section>
+
+        <section class="prayers">
+            <h2>Today's Prayers</h2>
+
+            <div class="prayer">
+                <span>Fajr</span>
+                <span>05:30 AM</span>
+            </div>
+
+            <div class="prayer">
+                <span>Dhuhr</span>
+                <span>12:30 PM</span>
+            </div>
+
+            <div class="prayer">
+                <span>Asr</span>
+                <span>03:45 PM</span>
+            </div>
+
+            <div class="prayer">
+                <span>Maghrib</span>
+                <span>06:20 PM</span>
+            </div>
+
+            <div class="prayer">
+                <span>Isha</span>
+                <span>07:35 PM</span>
+            </div>
+        </section>
+
+        <button id="silenceButton">
+            🔕 Silence Mode Reminder
+        </button>
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
