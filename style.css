@@ -1,0 +1,106 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f2f7f5;
+    color: #222;
+}
+
+header {
+    background: #087f5b;
+    color: white;
+    text-align: center;
+    padding: 25px 15px;
+}
+
+header h1 {
+    font-size: 25px;
+    margin-bottom: 8px;
+}
+
+header p {
+    font-size: 15px;
+}
+
+main {
+    width: 90%;
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+section {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.location h2 {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.location p {
+    color: #666;
+}
+
+.next-prayer {
+    text-align: center;
+    background: #e1f5ec;
+}
+
+.next-prayer h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.next-prayer h1 {
+    font-size: 35px;
+    color: #087f5b;
+    margin-bottom: 5px;
+}
+
+#prayerTime {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+#countdown {
+    margin-top: 10px;
+    color: #666;
+}
+
+.prayers h2 {
+    margin-bottom: 15px;
+}
+
+.prayer {
+    display: flex;
+    justify-content: space-between;
+    padding: 14px 5px;
+    border-bottom: 1px solid #ddd;
+}
+
+.prayer:last-child {
+    border-bottom: none;
+}
+
+#silenceButton {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background: #087f5b;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#silenceButton:hover {
+    background: #066b4d;
+}
