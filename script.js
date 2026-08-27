@@ -81,3 +81,69 @@ silenceButton.addEventListener("click", function () {
 updatePrayer();
 
 setInterval(updatePrayer, 1000);
+const locationButton = document.getElementById("locationButton");
+const locationStatus = document.getElementById("locationStatus");
+
+// Example Masjid location
+const masjid = {
+    latitude: -6.7924,
+    longitude: 39.2083
+};
+
+function calculateDistance(lat1, lon1, lat2, lon2) {
+    const R = 6371;
+
+    const dLat = (lat2 - lat1) * Math.PI / 180;
+    const dLon = (lon2 - lon1) * Math.PI / 180;
+
+    const a =
+        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos(lat1 * Math.PI / 180) *
+        Math.cos(lat2 * Math.PI / 180) *
+        Math.sin(dLon / 2) *
+        Math.sin(dLon / 2);
+
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+    return R * c;
+}
+
+locationButton.addEventListener("click", function () {
+
+    if (!navigator.geolocation) {
+        locationStatus.textContent =
+            "❌ Location is not supported by your browser.";
+        return;
+    }
+
+    locationStatus.textContent =
+        "📍 Getting your location...";
+
+    navigator.geolocation.getCurrentPosition(
+        function (position) {
+
+            const userLatitude = position.coords.latitude;
+            const userLongitude = position.coords.longitude;
+
+            const distance = calculateDistance(
+                userLatitude,
+                userLongitude,
+                masjid.latitude,
+                masjid.longitude
+            );
+
+            if (distance <= 0.2) {
+                locationStatus.textContent =
+                    "🕌 You are near the Masjid. Please switch your phone to Silent Mode.";
+            } else {
+                locationStatus.textContent =
+                    `You are ${distance.toFixed(2)} km from the Masjid.`;
+            }
+        },
+
+        function () {
+            locationStatus.textContent =
+                "❌ Unable to get your location. Please allow location access.";
+        }
+    );
+});
