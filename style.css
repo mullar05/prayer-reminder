@@ -8,17 +8,18 @@ body {
     font-family: Arial, sans-serif;
     background: #f2f7f5;
     color: #222;
+    min-height: 100vh;
 }
 
 header {
     background: #087f5b;
     color: white;
     text-align: center;
-    padding: 25px 15px;
+    padding: 28px 15px;
 }
 
 header h1 {
-    font-size: 25px;
+    font-size: 26px;
     margin-bottom: 8px;
 }
 
@@ -27,22 +28,22 @@ header p {
 }
 
 main {
-    width: 90%;
+    width: 92%;
     max-width: 500px;
     margin: 20px auto;
 }
 
 section {
     background: white;
-    border-radius: 15px;
+    border-radius: 16px;
     padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    margin-bottom: 18px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-.location h2 {
-    font-size: 18px;
-    margin-bottom: 8px;
+section h2 {
+    margin-bottom: 15px;
+    font-size: 20px;
 }
 
 .location p {
@@ -54,19 +55,14 @@ section {
     background: #e1f5ec;
 }
 
-.next-prayer h2 {
-    font-size: 18px;
-    margin-bottom: 10px;
-}
-
 .next-prayer h1 {
-    font-size: 35px;
     color: #087f5b;
-    margin-bottom: 5px;
+    font-size: 38px;
+    margin: 10px 0;
 }
 
 #prayerTime {
-    font-size: 22px;
+    font-size: 24px;
     font-weight: bold;
 }
 
@@ -76,13 +72,13 @@ section {
 }
 
 .prayers h2 {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .prayer {
     display: flex;
     justify-content: space-between;
-    padding: 14px 5px;
+    padding: 15px 5px;
     border-bottom: 1px solid #ddd;
 }
 
@@ -90,9 +86,19 @@ section {
     border-bottom: none;
 }
 
-#silenceButton {
+.masjid-section {
+    text-align: center;
+}
+
+#locationStatus {
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+button {
     width: 100%;
-    padding: 15px;
+    padding: 14px;
+    margin-top: 10px;
     border: none;
     border-radius: 10px;
     background: #087f5b;
@@ -101,6 +107,62 @@ section {
     cursor: pointer;
 }
 
-#silenceButton:hover {
+button:hover {
     background: #066b4d;
+}
+
+/* Settings */
+
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 7px;
+    font-weight: bold;
+}
+
+input[type="text"],
+select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+.setting {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.setting input {
+    width: 20px;
+    height: 20px;
+}
+
+/* Mobile */
+
+@media (max-width: 480px) {
+
+    header h1 {
+        font-size: 22px;
+    }
+
+    main {
+        width: 94%;
+    }
+
+    section {
+        padding: 17px;
+    }
+
+    .next-prayer h1 {
+        font-size: 32px;
+    }
+
+    #prayerTime {
+        font-size: 21px;
+    }
 }
