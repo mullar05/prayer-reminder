@@ -84,11 +84,19 @@ setInterval(updatePrayer, 1000);
 const locationButton = document.getElementById("locationButton");
 const locationStatus = document.getElementById("locationStatus");
 
-// Example Masjid location
 const masjid = {
     latitude: -6.7924,
     longitude: 39.2083
 };
+
+const savedDistance =
+    parseFloat(localStorage.getItem("reminderDistance")) || 0.2;
+
+const savedMasjidName =
+    localStorage.getItem("masjidName") || "the Masjid";
+
+const masjidReminderEnabled =
+    localStorage.getItem("masjidReminder") !== "false";
 
 function calculateDistance(lat1, lon1, lat2, lon2) {
     const R = 6371;
@@ -132,9 +140,10 @@ locationButton.addEventListener("click", function () {
                 masjid.longitude
             );
 
-            if (distance <= 0.2) {
-                locationStatus.textContent =
-                    "🕌 You are near the Masjid. Please switch your phone to Silent Mode.";
+           if (distance <= savedDistance && masjidReminderEnabled) {
+         alert(
+    `🕌 MASJID REMINDER\n\nYou are near ${savedMasjidName}.\nPlease switch your phone to Silent Mode.`
+);
             } else {
                 locationStatus.textContent =
                     `You are ${distance.toFixed(2)} km from the Masjid.`;
